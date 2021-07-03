@@ -14,6 +14,9 @@ function App() {
       <Route exact path="/starred">
         <Starred />
       </Route>
+      <Route exact path="/Show/:id">
+        <show />
+      </Route>
 
       <Route>
         <div>not found</div>
