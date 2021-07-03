@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   const onKeyDown = ev => {
-    if (ev.KeyCode === 13) {
+    if (ev.keyCode === 13) {
       onSearch();
     }
   };
@@ -38,7 +38,11 @@ const Home = () => {
       return <div>No results</div>;
     }
     if (results && results.length > 0) {
-      return results[0].show ? <ShowGrid /> : <ActorGrid />;
+      return results[0].show ? (
+        <ShowGrid data={results} />
+      ) : (
+        <ActorGrid data={results} />
+      );
     }
     return null;
   };
