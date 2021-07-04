@@ -7,12 +7,13 @@ import ShowGrid from '../components/show/ShowGrid';
 
 const Starred = () => {
   const [starred] = useShows();
+
   const [shows, setShows] = useState(null);
   const [isLoading, setisLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (starred && starred.length) {
+    if (starred && starred.length > 0) {
       const promises = starred.map(showId => apiGet(`/shows/${showId}`));
 
       Promise.all(promises)

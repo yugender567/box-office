@@ -4,18 +4,18 @@ import MainPageLayout from '../components/MainPageLayout';
 import { apiGet } from '../misc/config';
 import ShowGrid from '../components/show/ShowGrid';
 import ActorGrid from '../components/actor/ActorGrid';
+import { useLastQuery } from '../misc/custom-hooks';
 
 const Home = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
-  const [searchOption, setsearchOption] = useState('shows');
+  const [searchOption, setSearchOption] = useState('shows');
 
-  const isshowsSearch = searchOption === 'shows';
+  const isShowsSearch = searchOption === 'shows';
 
   const onSearch = () => {
     apiGet(`/search/${searchOption}?q=${input}`).then(result => {
       setResults(result);
-      console.log(result);
     });
     // https://api.tvmaze.com/search/people?q=men
   };
@@ -30,9 +30,8 @@ const Home = () => {
   };
 
   const onRadioChange = ev => {
-    setsearchOption(ev.target.value);
+    setSearchOption(ev.target.value);
   };
-  console.log(searchOption);
 
   const renderResults = () => {
     if (results && results.length === 0) {
@@ -58,12 +57,12 @@ const Home = () => {
       />
       <div>
         <label htmlFor="shows-search">
-          shows
+          Shows
           <input
             id="shows-search"
             type="radio"
             value="shows"
-            checked={isshowsSearch}
+            checked={isShowsSearch}
             onChange={onRadioChange}
           />
         </label>
@@ -74,7 +73,7 @@ const Home = () => {
             id="actors-search"
             type="radio"
             value="people"
-            checked={!isshowsSearch}
+            checked={!isShowsSearch}
             onChange={onRadioChange}
           />
         </label>
