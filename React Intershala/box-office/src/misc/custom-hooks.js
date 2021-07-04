@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useReducer, useEffect } from 'react';
 
 function showsReducer(prevState, action) {
@@ -28,6 +29,6 @@ function usePersistedReducer(reducer, initailState, key) {
   return [state, dispatch];
 }
 
-export function useshows(key = 'shows') {
+export function useShows(key = 'shows') {
   return usePersistedReducer(showsReducer, [], key);
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import Details from '../components/show/Details';
@@ -5,7 +6,7 @@ import Seasons from '../components/show/Seasons';
 import Cast from '../components/show/Cast';
 import ShowMainData from '../components/show/ShowMainData';
 import { apiGet } from '../misc/config';
-import { InfoBlock, ShowPageWrapper } from './show.styled';
+import { InfoBlock, ShowPageWrapper } from './Show.styled';
 
 const reducer = (prevState, action) => {
   switch (action.type) {
@@ -49,7 +50,7 @@ const Show = () => {
       })
       .catch(err => {
         if (isMounted) {
-          dispatch({ type: 'FETCH_FAILED', error: err.message });
+          dispatch({ type: 'FETCH_FAILED', ersror: err.message });
         }
       });
 
@@ -68,7 +69,7 @@ const Show = () => {
   return (
     <ShowPageWrapper>
       <ShowMainData
-        image={Show.image}
+        image={show.image}
         name={show.name}
         rating={show.rating}
         summary={show.summary}
@@ -85,11 +86,11 @@ const Show = () => {
       </InfoBlock>
       <InfoBlock>
         <h2>Seasons</h2>
-        <Seasons seasons={show.embedded.seasons} />
+        <Seasons seasons={show._embedded.seasons} />
       </InfoBlock>
       <InfoBlock>
         <h2>Cast</h2>
-        <Cast cast={show.embedded.cast} />
+        <Cast cast={show._embedded.cast} />
       </InfoBlock>
     </ShowPageWrapper>
   );
