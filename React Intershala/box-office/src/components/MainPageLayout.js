@@ -6,8 +6,8 @@ const MainPageLayout = ({ children }) => {
   return (
     <div>
       <Title
-        title="Box-Office | _(Yugender)"
-        subtitle="Are you looking for a Movie or an Actor"
+        title="Box-Office"
+        subtitle="Are you looking for a Web Series or an Actor"
       />
       <Navs />
       {children}

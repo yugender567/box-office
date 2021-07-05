@@ -11,8 +11,16 @@ export const TitleWrapper = styled.div`
     margin: 0 0 10px;
   }
 
+  h2 {
+    color: crimson;
+    /* text-align: right; */
+    letter-spacing: 5px;
+    /* text-transform: uppercase; */
+    margin: 0 0 10px;
+  }
+
   p {
-    color: ${({ theme }) => theme.mainColors.dark};
+    color: navy;
     margin: 0;
   }
 `;

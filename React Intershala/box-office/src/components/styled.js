@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import FadeIn from 'react-fade-in';
 
-export const FlexGrid = styled.div`
+export const FlexGrid = styled(FadeIn)`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -28,6 +29,10 @@ export const SearchCard = styled.div`
   h1 {
     margin: 10px 0;
     font-size: 21px;
+  }
+  h2 {
+    margin: 10px 0;
+    font-size: 10px;
   }
 
   p {
